@@ -13,38 +13,30 @@
 </head>
 <body>
 <div class="container">
-
-    <br>
+    <div>
+        <h2 class="text-center">多人订餐计算页面</h2>
+    </div><hr>
 
     <form class="form-horizontal" role="form" id="myForm">
 
-        <div class="form-group">
+        <div class="form-group" id="divAllCount">
             <label for="inputAllCount" class="col-sm-2 control-label">总价</label>
             <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputAllCount" placeholder="总价">
+                <input type="text" class="col-sm-3 disable" id="inputAllCount" placeholder="总价" >
+
+                <label for="inputFare" class="col-sm-1 control-label">运费</label>
+                <input type="text" class="col-sm-3 disable" id="inputFare" placeholder="运费" >
+
+                <label for="inputPreferential" class="col-sm-1 control-label">优惠</label>
+                <input type="text" class="col-sm-3 disable" id="inputPreferential" placeholder="例25减10，输入25#10" >
             </div>
-        </div>
+        </div><hr>
 
         <div class="form-group">
-            <label for="inputFare" class="col-sm-2 control-label">运费</label>
+            <label for="inputPreferential" class="col-sm-2 control-label"></label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputFare" placeholder="运费">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="inputPreferential" class="col-sm-2 control-label">优惠</label>
-            <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPreferential" placeholder="优惠">
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            <label for="inputPreferential" class="col-sm-2 control-label">优惠</label>
-            <div class="col-sm-10">
-                <table class="table table-hover" id="myTable">
-
+                <table class="table table-hover table-bordered" id="myTable">
+                    <caption class="text-center"><em>购买清单</em></caption>
                     <colgroup>
                         <col width="10%">
                         <col width="20%">
@@ -56,10 +48,10 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>food_name</th>
-                            <th>food_price</th>
-                            <th>name</th>
-                            <th>optr</th></tr>
+                            <th>商品名称</th>
+                            <th>商品价格</th>
+                            <th>用户姓名</th>
+                            <th>操作</th></tr>
                     </thead>
 
                     <tbody>
@@ -77,12 +69,60 @@
         </div>
 
         <div class="form-group">
-            <label for="inputAdd" class="col-sm-2 control-label"></label>
+            <label for="inputAdd" class="col-sm-2 control-label">操作</label>
             <div class="col-sm-10">
                 <input type="button" id="inputAdd"  class="btn-success" value="增加"/><input type="button" id="countAll"  style="margin-left: 10px" class="bg-primary" value="计算"/>
             </div>
-        </div>
+        </div><hr>
 
+        <div class="form-group">
+            <label for="inputAdd" class="col-sm-2 control-label">汇总</label>
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-md-2" ><span>总价:&nbsp;</span><span><i>100</i> 元</span></div>
+                    <div class="col-md-2" ><span>减免:&nbsp;</span><span><i>100</i> 元</span></div>
+                    <div class="col-md-2" ><span>实付:&nbsp;</span><span><i>100</i> 元</span></div>
+                    <div class="col-md-2" ><span>有效人数:&nbsp;</span><span><i>0</i> 人</span></div>
+                    <div class="col-md-4" ><span>减免金额／每人:&nbsp;</span><span><i>0</i> 元</span></div>
+                </div>
+            </div>
+        </div><hr>
+
+        <div class="form-group">
+            <label for="inputPreferential" class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+                <table class="table table-hover table-bordered" id="myTable">
+                    <caption class="text-center"><em>计算结果</em></caption>
+                    <colgroup>
+                        <col width="10%">
+                        <col width="20%">
+                        <col width="20%">
+                        <col width="20%">
+                        <col width="30%">
+                    </colgroup>
+
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>商品名称</th>
+                        <th>商品价格</th>
+                        <th>用户姓名</th>
+                        <th>操作</th></tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>无</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td></tr>
+                    </tbody>
+
+
+                </table>
+            </div>
+        </div>
     </form>
 </div>
 
