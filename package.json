@@ -1,0 +1,17 @@
+{
+  "name": "money",
+  "version": "1.0.0",
+  "description": "",
+  "main": "money.js",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1",
+    "sweetalert": "^1.1.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
