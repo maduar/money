@@ -3,6 +3,41 @@
  */
 $(document).ready(function () {
 
+
+    $('#inputAllCount, #inputFare').on('change', function (e) {
+        var _this = $(this);
+        var _value = $.trim(_this.val());
+
+        if(_value === '') {
+            return  _this.removeClass('enable').addClass('error_font disable');
+        }
+
+        var _str = String(_value);
+        if(!obj.verityForm('goods-price1', _str) && !obj.verityForm('goods-price2', _str)) {
+            return _this.removeClass('enable').addClass('error_font disable');
+        }
+
+        _this.removeClass('error_font disable').addClass('enable');
+
+    });
+
+    $('#inputPreferential').on('change', function (e) {
+        var _this = $(this);
+        var _value = $.trim(_this.val());
+
+        if(_value === '') {
+            return  _this.removeClass('enable').addClass('error_font disable');
+        }
+
+        if(!obj.verityForm('preferential', _value)) {
+            return _this.removeClass('enable').addClass('error_font disable');
+        }
+
+        _this.removeClass('error_font disable').addClass('enable');
+
+
+    })
+
     $('#countAll').on('click', function (e) {
 
         var _countTr = $('#myTable tr.enable');
@@ -116,30 +151,30 @@ $(document).ready(function () {
             if(_this.hasClass('goods-name')) {
                 if(!obj.verityForm('goods-name', _this.val())) {
                     _tr.removeClass().addClass('disable');
-                    _this.removeClass('verity').addClass('no-verity')
+                    _this.removeClass('verity').addClass('no-verity, error_font');
                     return swal("食物名称有误");
                 } else {
-                    _this.removeClass('no-verity').addClass('verity')
+                    _this.removeClass('no-verity, error_font').addClass('verity')
                 }
             }
 
             if(_this.hasClass('goods-price')) {
                 if(!obj.verityForm('goods-price1', String(_this.val())) && !obj.verityForm('goods-price2', String(_this.val()))) {
                     _tr.removeClass().addClass('disable');
-                    _this.removeClass('verity').addClass('no-verity')
+                    _this.removeClass('verity').addClass('no-verity, error_font');
                     return swal("价格有误");
                 } else {
-                    _this.removeClass('no-verity').addClass('verity')
+                    _this.removeClass('no-verity, error_font').addClass('verity')
                 }
             }
 
             if(_this.hasClass('user-name')) {
                 if(!obj.verityForm('user-name', _this.val())) {
                     _tr.removeClass().addClass('disable');
-                    _this.removeClass('verity').addClass('no-verity')
+                    _this.removeClass('verity').addClass('no-verity, error_font');
                     return swal("姓名有误");
                 } else {
-                    _this.removeClass('no-verity').addClass('verity')
+                    _this.removeClass('no-verity, error_font').addClass('verity')
                 }
             }
 
@@ -169,6 +204,7 @@ $(document).ready(function () {
 
         })
     });
+
 })
 
 var obj = {
@@ -189,6 +225,14 @@ var obj = {
             }
             case "user-name": {
                 reg = /\w+/;
+                break;
+            }
+            case "preferential": {
+                reg = /^[\d]+#[\d]+$/;
+                break
+            }
+            default: {
+                return false;
                 break;
             }
         }
